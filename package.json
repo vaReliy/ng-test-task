@@ -2,6 +2,7 @@
   "name": "ng-test-task",
   "version": "0.0.0",
   "scripts": {
+    "server": "json-server --watch json-server-db.json",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
