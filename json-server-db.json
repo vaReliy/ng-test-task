@@ -1,9 +1,39 @@
 {
   "posts": [
-    { "id": 1, "userName": "Ivan AAA", "email": "ivan.AAA@bla-bla.com", "phoneNumber": "0503335522", "birthday": "01.05.1990" },
-    { "id": 2, "userName": "Ivan BBB", "email": "ivan.BBB@bla-bla.com", "phoneNumber": "0508885522", "birthday": "12.08.1992" },
-    { "id": 3, "userName": "Ivan CCC", "email": "ivan.CCC@bla-bla.com", "phoneNumber": "0506665522", "birthday": "23.12.1983" },
-    { "id": 4, "userName": "Ivan DDD", "email": "ivan.DDD@bla-bla.com", "phoneNumber": "0505555522", "birthday": "05.01.1990" },
-    { "id": 5, "userName": "Ivan EEE", "email": "ivan.EEE@bla-bla.com", "phoneNumber": "0509995522", "birthday": "01.03.1980" }
+    {
+      "id": 1,
+      "userName": "Ivan AAA",
+      "email": "ivan.AAA@bla-bla.com",
+      "phoneNumber": "0503335522",
+      "birthday": "01.05.1990"
+    },
+    {
+      "id": 2,
+      "userName": "Ivan BBB",
+      "email": "ivan.BBB@bla-bla.com",
+      "phoneNumber": "0508885522",
+      "birthday": "12.08.1992"
+    },
+    {
+      "id": 3,
+      "userName": "Ivan CCC",
+      "email": "ivan.CCC@bla-bla.com",
+      "phoneNumber": "0506665522",
+      "birthday": "23.12.1983"
+    },
+    {
+      "id": 4,
+      "userName": "Ivan DDD",
+      "email": "ivan.DDD@bla-bla.com",
+      "phoneNumber": "0505555522",
+      "birthday": "05.01.1990"
+    },
+    {
+      "id": 5,
+      "userName": "Ivan EEE",
+      "email": "ivan.EEE@bla-bla.com",
+      "phoneNumber": "0509995522",
+      "birthday": "01.03.1980"
+    }
   ]
 }

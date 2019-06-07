@@ -10,7 +10,9 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Install JSON Server: `npm i -g json-server`.  
 Run `npm run server` to start a json server. Navigate to `http://localhost:3000/`.  
-The db-file: `./json-server-db.json`.
+The db-file: `./json-server-db.json`.  
+curl example: 
+`curl -d  '{"id": 12, "userName": "Petro Petrov", "email": "petrov.p@email.com", "phoneNumber": "0509988844", "birthday": "20.02.1952"}' -H "Content-Type: application/json" -X POST http://localhost:3000/posts`
 
 ## Code scaffolding
 
