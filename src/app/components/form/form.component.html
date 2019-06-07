@@ -20,7 +20,7 @@
     <input type="number" formControlName="birthday" placeholder="Your birthday.. (ddmmyyyy)">
   </label>
 
-  <button (click)="onButtonClick()">Add user</button>
+  <button (click)="onButtonClick()" [disabled]="!_form.valid">Add user</button>
 </form>
 
 

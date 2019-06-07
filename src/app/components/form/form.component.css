@@ -28,3 +28,11 @@ button {
 button:hover, a:active {
   background-color: #12af22;
 }
+button:disabled {
+  background-color: dimgray;
+}
+
+label {
+  font-size: small;
+  color: dimgray;
+}
