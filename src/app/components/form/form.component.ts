@@ -8,7 +8,7 @@ import {EventService} from '../../service/event.service';
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css'],
-  providers: [ApiService, EventService]
+  providers: [ApiService]
 })
 export class FormComponent implements OnInit {
   private _form: FormGroup = new FormGroup({

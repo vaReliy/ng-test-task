@@ -9,6 +9,6 @@ export class EventService {
   }
 
   onUserAdded(user: User) {
-    console.log('EventService => added user', user);
+    this.onUserAddedSubject.next(user);
   }
 }

@@ -1,6 +1,4 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
-import {EventManager} from '@angular/platform-browser';
-import {Observable, Subject} from 'rxjs';
+import {Component, OnInit} from '@angular/core';
 import {User} from '../../models/user.model';
 import {ApiService} from '../../service/api.service';
 import {EventService} from '../../service/event.service';
@@ -9,7 +7,7 @@ import {EventService} from '../../service/event.service';
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css'],
-  providers: [ApiService, EventService]
+  providers: [ApiService]
 })
 export class TableComponent implements OnInit {
   private _users: User[];
@@ -18,21 +16,25 @@ export class TableComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.eventService.onUserAdded$.subscribe(this.onUserAdded);
-
-    this.apiService.getUsers().subscribe((users: User[]) => {
-      this._users = users;
-      this.sortByEmail(); // fixme: temporary solution
-    });
+    this.eventService.onUserAdded$.subscribe(this.onUserAdded.bind(this));
+    this.updateDataFromServer();
   }
 
-  onUserAdded(data: any) {
-    console.log('Table => added user', data);
+  onUserAdded(user: User) {
+    this._users.push(user);
+    this.sortByEmail(); // fixme: temporary solution
   }
 
   private sortByEmail() {
     const compare = (a, b) => a.email.localeCompare(b.email);
     this._users = this._users.sort(compare);
+  }
+
+  private updateDataFromServer() {
+    this.apiService.getUsers().subscribe((users: User[]) => {
+      this._users = users;
+      this.sortByEmail();
+    });
   }
 
   get users(): User[] {
