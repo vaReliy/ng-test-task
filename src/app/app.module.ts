@@ -1,12 +1,13 @@
-import {BrowserModule} from '@angular/platform-browser';
+import {HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
+import {ReactiveFormsModule} from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
 import {FormComponent} from './components/form/form.component';
-import {ReactiveFormsModule} from '@angular/forms';
 import {TableComponent} from './components/table/table.component';
-import {HttpClientModule} from '@angular/common/http';
 import {ApiService} from './service/api.service';
+import {EventService} from './service/event.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import {ApiService} from './service/api.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ApiService],
+  providers: [ApiService, EventService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

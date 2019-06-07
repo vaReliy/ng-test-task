@@ -1,42 +1,53 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {User} from '../../models/user.model';
+import {ApiService} from '../../service/api.service';
+import {EventService} from '../../service/event.service';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  styleUrls: ['./form.component.css'],
+  providers: [ApiService, EventService]
 })
 export class FormComponent implements OnInit {
-  private form: FormGroup = new FormGroup({
+  private _form: FormGroup = new FormGroup({
     userName: new FormControl('', [Validators.required, Validators.minLength(3)]),
     email: new FormControl('', [Validators.required, Validators.email]),
     phoneNumber: new FormControl('', Validators.compose([Validators.required, Validators.minLength(7), Validators.maxLength(10)])),
     birthday: new FormControl('', Validators.compose([Validators.required, Validators.minLength(8), Validators.maxLength(8)])),
   }); // fixme: need to use correct validators
 
-  constructor() {
+  constructor(private apiService: ApiService, private eventService: EventService) {
   }
 
   ngOnInit() {
   }
 
   onButtonClick() {
-    if (this.isValidForm()) {
-      console.log('all data is valid!');
-      // todo: handle data
+    if (this._form.valid) {
+      const user: User = this.getUserFromForm();
+      this.apiService.createUser(user).subscribe((addedUser: User) => {
+        this._form.reset();
+        this.eventService.onUserAdded(addedUser);
+      });
     }
   }
 
   private getStatus(formItem: string): string {
-    return this.form.get(formItem).status;
+    return this._form.get(formItem).status;
   }
 
-  private isValidForm(): boolean {
-    return this.isValid('userName') && this.isValid('email') && this.isValid('phoneNumber') && this.isValid('birthday');
+  private formItemValue(formItem: string): string {
+    return this._form.get(formItem).value as string;
   }
 
-  private isValid(formItem: string): boolean {
-    return this.form.get(formItem).status === 'VALID';
+  private getUserFromForm(): User {
+    const user = new User();
+    user.userName = this.formItemValue('userName');
+    user.email = this.formItemValue('email');
+    user.phoneNumber = this.formItemValue('phoneNumber');
+    user.birthday = this.formItemValue('birthday');
+    return user;
   }
-
 }
