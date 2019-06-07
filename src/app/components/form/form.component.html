@@ -12,12 +12,12 @@
 
   <label>
     Phone number: {{ getStatus('phoneNumber') }}
-    <input type="number" formControlName="phoneNumber" placeholder="Your phone number..">
+    <input type="string" formControlName="phoneNumber" placeholder="Your phone number..">
   </label><br>
 
   <label>
     Birthday: {{ getStatus('birthday') }}
-    <input type="number" formControlName="birthday" placeholder="Your birthday.. (ddmmyyyy)">
+    <input type="string" formControlName="birthday" placeholder="Your birthday.. (dd.mm.yyyy)">
   </label>
 
   <button (click)="onButtonClick()" [disabled]="!_form.valid">Add user</button>

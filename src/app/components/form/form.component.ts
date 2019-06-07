@@ -14,8 +14,8 @@ export class FormComponent implements OnInit {
   private _form: FormGroup = new FormGroup({
     userName: new FormControl('', [Validators.required, Validators.minLength(3)]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    phoneNumber: new FormControl('', Validators.compose([Validators.required, Validators.minLength(7), Validators.maxLength(10)])),
-    birthday: new FormControl('', Validators.compose([Validators.required, Validators.minLength(8), Validators.maxLength(8)])),
+    phoneNumber: new FormControl('', Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(15)])),
+    birthday: new FormControl('', Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(10)])),
   }); // fixme: need to use correct validators
 
   constructor(private apiService: ApiService, private eventService: EventService) {
