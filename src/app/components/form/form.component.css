@@ -1,6 +1,9 @@
 label {
   display: block;
+}
+
+.is-invalid-input {
   font-size: small;
-  color: dimgray;
+  color: indianred;
   text-align: left;
 }

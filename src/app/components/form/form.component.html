@@ -3,30 +3,30 @@
   <div class="form-group">
     <div>
       <label>
-        User name: {{ getStatus('userName') }}
         <input type="text" class="form-control" formControlName="userName" placeholder="Your username..">
       </label>
+      <p class="is-invalid-input" *ngIf="isInvalidInput('userName')">Invalid user name </p>
     </div>
 
     <div>
       <label>
-        Email: {{ getStatus('email') }}
         <input type="email" class="form-control" formControlName="email" placeholder="Your email..">
       </label>
+      <p class="is-invalid-input" *ngIf="isInvalidInput('email')">Invalid email (need '@') </p>
     </div>
 
     <div>
       <label>
-        Phone number: {{ getStatus('phoneNumber') }}
         <input type="string" class="form-control" formControlName="phoneNumber" placeholder="Your phone number..">
       </label>
+      <p class="is-invalid-input" *ngIf="isInvalidInput('phoneNumber')">Invalid phone number (need 10-15 symbols)</p>
     </div>
 
     <div>
       <label>
-        Birthday: {{ getStatus('birthday') }}
         <input type="string" class="form-control" formControlName="birthday" placeholder="Your birthday.. (dd.mm.yyyy)">
       </label>
+      <p class="is-invalid-input" *ngIf="isInvalidInput('birthday')">Invalid birthday. Please use only 'dd.mm.yyyy' format </p>
     </div>
 
     <div>

@@ -25,7 +25,12 @@ export class FormComponent implements OnInit {
   onButtonClick() {
     if (this._form.valid) {
       const user: User = this.getUserFromForm();
-      this._form.reset();
+      this._form.reset({
+        userName: '',
+        email: '',
+        phoneNumber: '',
+        birthday: ''
+      });
       this.userAddEmitter.emit(user);
     }
   }
@@ -36,6 +41,11 @@ export class FormComponent implements OnInit {
 
   private formItemValue(formItem: string): string {
     return this._form.get(formItem).value as string;
+  }
+
+  private isInvalidInput(formItem: string): boolean {
+    const item = this._form.get(formItem);
+    return item.value !== '' && item.status === 'INVALID';
   }
 
   private getUserFromForm(): User {
