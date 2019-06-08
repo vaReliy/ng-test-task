@@ -1,26 +1,38 @@
-<form [formGroup]="_form">
+<form class="text-center" [formGroup]="_form">
 
-  <label>
-    User name: {{ getStatus('userName') }}
-    <input type="text" formControlName="userName" placeholder="Your username..">
-  </label>
+  <div class="form-group">
+    <div>
+      <label>
+        User name: {{ getStatus('userName') }}
+        <input type="text" class="form-control" formControlName="userName" placeholder="Your username..">
+      </label>
+    </div>
 
-  <label>
-    Email: {{ getStatus('email') }}
-    <input type="text" formControlName="email" placeholder="Your email..">
-  </label>
+    <div>
+      <label>
+        Email: {{ getStatus('email') }}
+        <input type="email" class="form-control" formControlName="email" placeholder="Your email..">
+      </label>
+    </div>
 
-  <label>
-    Phone number: {{ getStatus('phoneNumber') }}
-    <input type="string" formControlName="phoneNumber" placeholder="Your phone number..">
-  </label><br>
+    <div>
+      <label>
+        Phone number: {{ getStatus('phoneNumber') }}
+        <input type="string" class="form-control" formControlName="phoneNumber" placeholder="Your phone number..">
+      </label>
+    </div>
 
-  <label>
-    Birthday: {{ getStatus('birthday') }}
-    <input type="string" formControlName="birthday" placeholder="Your birthday.. (dd.mm.yyyy)">
-  </label>
+    <div>
+      <label>
+        Birthday: {{ getStatus('birthday') }}
+        <input type="string" class="form-control" formControlName="birthday" placeholder="Your birthday.. (dd.mm.yyyy)">
+      </label>
+    </div>
 
-  <button (click)="onButtonClick()" [disabled]="!_form.valid">Add user</button>
+    <div>
+      <button class="btn btn-success btn-group-sm" type="submit" (click)="onButtonClick()" [disabled]="!_form.valid">Add user</button>
+    </div>
+  </div>
 </form>
 
 

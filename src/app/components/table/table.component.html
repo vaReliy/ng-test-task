@@ -1,19 +1,21 @@
-<table>
-  <thead>
-    <tr>
-      <td> User name </td>
-      <td> Email </td>
-      <td> Phone number </td>
-      <td> Birthday </td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let user of usersArray">
-      <td> {{ user.userName }} </td>
-      <td> {{ user.email }} </td>
-      <td> {{ user.phoneNumber }} </td>
-      <td> {{ user.birthday }} </td>
-    </tr>
-  </tbody>
+<div class="text-center">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <td> User name </td>
+        <td> Email </td>
+        <td> Phone number </td>
+        <td> Birthday </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of usersArray">
+        <td> {{ user.userName }} </td>
+        <td> {{ user.email }} </td>
+        <td> {{ user.phoneNumber }} </td>
+        <td> {{ user.birthday }} </td>
+      </tr>
+    </tbody>
 
-</table>
+  </table>
+</div>
