@@ -1,3 +1,6 @@
 label {
   display: block;
+  font-size: small;
+  color: dimgray;
+  text-align: left;
 }
