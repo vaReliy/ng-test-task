@@ -7,20 +7,21 @@ import {AppComponent} from './app.component';
 import {FormComponent} from './components/form/form.component';
 import {TableComponent} from './components/table/table.component';
 import {ApiService} from './service/api.service';
-import {EventService} from './service/event.service';
+import {UsersComponent} from './components/users/users.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
-    TableComponent
+    TableComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ApiService, EventService],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

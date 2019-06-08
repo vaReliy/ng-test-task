@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {EventService} from './service/event.service';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +8,6 @@ import {EventService} from './service/event.service';
 export class AppComponent {
   title = 'ng-test-task';
 
-  constructor(private eventService: EventService) {
+  constructor() {
   }
 }
