@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {ApiService} from '../../service/api.service';
+import {Component, OnInit} from '@angular/core';
 import {User} from '../../models/user.model';
+import {ApiService} from '../../service/api.service';
 
 @Component({
   selector: 'app-users',
@@ -20,20 +20,12 @@ export class UsersComponent implements OnInit {
   createUser(user: User) {
     this.apiService.createUser(user).subscribe((addedUser: User) => {
       this._users.push(addedUser);
-      this.sortByEmail(); // fixme: temporary solution
     });
   }
 
   getUsersFromServer() {
     this.apiService.getUsers().subscribe((users: User[]) => {
       this._users = users;
-      this.sortByEmail(); // fixme: temporary solution
     });
   }
-
-  private sortByEmail() { // fixme: temporary solution
-    const compare = (a, b) => a.email.localeCompare(b.email);
-    this._users = this._users.sort(compare);
-  }
-
 }

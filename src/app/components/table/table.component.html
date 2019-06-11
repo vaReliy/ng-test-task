@@ -9,7 +9,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of usersArray">
+      <tr *ngFor="let user of usersArray | appObjectArraySortBy:'email'">
         <td> {{ user.userName }} </td>
         <td> {{ user.email }} </td>
         <td> {{ user.phoneNumber }} </td>
