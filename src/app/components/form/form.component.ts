@@ -45,7 +45,12 @@ export class FormComponent implements OnInit {
 
   private isInvalidInput(formItem: string): boolean {
     const item = this._form.get(formItem);
-    return item.value !== '' && item.status === 'INVALID';
+    return item.touched && item.status === 'INVALID';
+  }
+
+  private isValidInput(formItem: string): boolean {
+    const item = this._form.get(formItem);
+    return item.touched && !this.isInvalidInput(formItem);
   }
 
   private getUserFromForm(): User {
